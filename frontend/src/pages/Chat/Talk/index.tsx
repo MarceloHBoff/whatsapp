@@ -9,7 +9,6 @@ import { IApplicationState } from '../../../store';
 import { setContacts } from '../../../store/modules/contacts/actions';
 
 import updateLastMessage from '../../../utils/updateLastMessage';
-import { MessageDTO } from '../index';
 
 import {
   Container,
@@ -20,17 +19,16 @@ import {
   DefaultImage,
 } from './styles';
 import Message from './Message';
+import { addNewMessage } from '../../../store/modules/messages/actions';
 
-interface TalkProps {
-  messages: MessageDTO[];
-  setMessages(messages: React.SetStateAction<MessageDTO[]>): void;
-}
-
-const Talk: React.FC<TalkProps> = ({ messages, setMessages }) => {
+const Talk: React.FC = () => {
   const [typeMessage, setTypeMessage] = useState('');
 
   const contacts = useSelector((s: IApplicationState) => s.contacts.data);
-  const currentChat = useSelector((s: IApplicationState) => s.currentChat.data);
+  const { messages } = useSelector((s: IApplicationState) => s.messages.data);
+  const { currentChat } = useSelector(
+    (s: IApplicationState) => s.messages.data
+  );
 
   const dispatch = useDispatch();
 
@@ -48,8 +46,8 @@ const Talk: React.FC<TalkProps> = ({ messages, setMessages }) => {
     const updatedContacts = updateLastMessage(id, contacts, typeMessage);
 
     dispatch(setContacts(updatedContacts));
+    dispatch(addNewMessage(newMessage));
 
-    setMessages([newMessage, ...messages]);
     setTypeMessage('');
   }
 

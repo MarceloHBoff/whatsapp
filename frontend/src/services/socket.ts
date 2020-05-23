@@ -1,6 +1,5 @@
+import { MessageDTO } from './../store/modules/messages/types';
 import socketio from 'socket.io-client';
-
-import { MessageDTO } from './../pages/Chat/index';
 
 const socket = socketio('http://localhost:3333/', { autoConnect: false });
 

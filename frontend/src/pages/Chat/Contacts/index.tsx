@@ -4,11 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import DropDown from '../../../components/DropDown';
 import Avatar from '../../../components/Avatar';
 
-import api from '../../../services/api';
-
 import { IApplicationState } from '../../../store';
 import { ContactDTO } from '../../../store/modules/contacts/types';
-import { setCurrentChat } from '../../../store/modules/currentChat/actions';
+import { setCurrentChat } from '../../../store/modules/messages/actions';
 
 import Contact from './Contact';
 import { Container, User, ContactsList } from './styles';
@@ -21,8 +19,6 @@ const Contacts: React.FC = () => {
 
   async function handleClickContact(contact: ContactDTO) {
     dispatch(setCurrentChat(Object.assign(contact, { unreadMessages: 0 })));
-
-    await api.patch(`/messages/${contact.contact.id}`);
   }
 
   return (

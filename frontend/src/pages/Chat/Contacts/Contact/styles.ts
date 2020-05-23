@@ -45,7 +45,7 @@ export const ContactInfo = styled.div`
 
   div + div {
     max-width: 150px;
-    max-height: 0.8rem;
+    max-height: 1rem;
     font-size: 0.8rem;
     color: ${props => props.theme.colors.text};
     text-overflow: ellipsis;

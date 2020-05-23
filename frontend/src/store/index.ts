@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import { IAuthState } from './modules/auth/types';
 import { IContactsState } from './modules/contacts/types';
-import { ICurrentChatState } from './modules/currentChat/types';
+import { IMessagesState } from './modules/messages/types';
 import { IModalState } from './modules/modal/types';
 
 import rootReducer from './modules/rootReducer';
@@ -16,7 +16,7 @@ import rootSaga from './modules/rootSaga';
 export interface IApplicationState {
   auth: IAuthState;
   contacts: IContactsState;
-  currentChat: ICurrentChatState;
+  messages: IMessagesState;
   modal: IModalState;
 }
 
