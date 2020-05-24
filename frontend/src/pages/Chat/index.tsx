@@ -43,7 +43,7 @@ const Chat: React.FC = () => {
     function handleNewMessage(message: MessageDTO) {
       dispatch(setMessageSocket(message));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>

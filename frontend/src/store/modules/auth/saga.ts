@@ -39,6 +39,8 @@ export function* signIn(data: SignInParams) {
     const { token, user } = response.data;
 
     yield put(signInSuccess(token, user));
+
+    api.defaults.headers.Authorization = `Bearer ${token}`;
   } catch {
     alert('Email does not exists');
   }
@@ -65,6 +67,5 @@ export function setToken(data: SetTokenParams) {
 export default all([
   takeLatest(AuthTypes.REHYDRATE, setToken),
   takeLatest(AuthTypes.SIGN_IN_REQUEST, signIn),
-  takeLatest(AuthTypes.SIGN_IN_SUCCESS, setToken),
   takeLatest(AuthTypes.SIGN_UP_REQUEST, signUp),
 ]);
