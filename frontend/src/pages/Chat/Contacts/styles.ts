@@ -36,7 +36,7 @@ export const User = styled.div`
   display: flex;
   justify-content: space-between;
 
-  div {
+  > div {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -9,11 +9,12 @@ export const Container = styled.button`
   padding: 10px;
 
   div {
+    color: #999;
     background: #999;
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
   }
 `;
 

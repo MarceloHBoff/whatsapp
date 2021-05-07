@@ -32,9 +32,9 @@ const DropDown: React.FC<DropDownProps> = ({ options }) => {
 
   return (
     <Container onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
+      <div>.</div>
+      <div>.</div>
+      <div>.</div>
 
       {open && (
         <DropDownList>
